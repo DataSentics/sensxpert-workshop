@@ -9,7 +9,7 @@ up data in hivematestore.
 ## Day one (24. 7.):
   Databricks engineering: TBA
 
-## Day two
+## Day two (25. 7.)
   - AI assistant in `2_Data_science/0_AI_assistants.py`
   - MLFlow in `2_Data_science/1_MLflow.py`
   - AutoML (optional) in `2_Data_science/1_AutoML.ipynb`
