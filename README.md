@@ -10,10 +10,17 @@ up data in hivematestore.
   Databricks engineering: TBA
 
 ## Day two (25. 7.)
+### Basic ML topics
   - AI assistant in `2_Data_science/0_AI_assistants.py`
   - MLFlow in `2_Data_science/1_MLflow.py`
   - AutoML (optional) in `2_Data_science/1_AutoML.ipynb`
-  - 
+  - Spark ML (simple batch ML) in `TBA`
+
+### Advanced topics
+  - MLOps architecture
+  - from Databricks to edge devices
+
+### New Databricks features
 
 ## Materials:
 - DBX_intro
