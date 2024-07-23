@@ -1,0 +1,46 @@
+{
+    "catalog": "ls_dbx_workshop",
+    "schema": "day_one",
+    "table_name": "parts",
+    "cluster_by": ["plant"],
+    "comment": "This is table level comment",
+    "tags": {
+      "table_tag1_key": "table_tag1_value",
+      "table_tag2_key": "table_tag2_value"
+    },
+    "properties": {
+      "table_property1_key": "table_property1_value",
+      "table_property2_key": "table_property2_value"
+    },
+    "columns": [
+      {
+        "name": "partnumber",
+        "type": "integer",
+        "nullable": false,
+        "tags": {
+          "column_tag1_key": "column_tag1_value",
+          "column_tag2_key": "column_tag2_value"
+        },
+        "metadata": {
+          "metadata1_key": "metadata1_value",
+          "metadata2_key": "metadata2_value",
+          "comment": "This is a column level comment"
+        }
+      },
+      {
+        "name": "stockdate",
+        "type": "timestamp",
+        "nullable": true
+      },
+      {
+        "name": "plant",
+        "type": "string",
+        "nullable": false
+      },
+      {
+        "name": "part_price",
+        "type": "double",
+        "nullable": true
+      }
+    ]
+  }
