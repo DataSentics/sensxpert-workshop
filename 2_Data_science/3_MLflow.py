@@ -53,6 +53,13 @@ data = pd.DataFrame(d, columns=cols)
 
 # COMMAND ----------
 
+username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
+username = username.split("@")[0]
+username = username.replace('.', '_')
+model_name = f"{username}_diabetes_model"
+
+# COMMAND ----------
+
 # MAGIC %md ## Create function to plot ElasticNet descent path
 # MAGIC The `plot_enet_descent_path()` function:
 # MAGIC * Creates and saves a plot of the [ElasticNet Descent Path](http://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_coordinate_descent_path.html) for the ElasticNet model for the specified *l1_ratio*.
@@ -69,7 +76,7 @@ def plot_enet_descent_path(X, y, l1_ratio):
     global image
     
     print("Computing regularization path using ElasticNet.")
-    alphas_enet, coefs_enet, _ = enet_path(X, y, eps=eps, l1_ratio=l1_ratio, fit_intercept=False)
+    alphas_enet, coefs_enet, _ = enet_path(X, y, eps=eps, l1_ratio=l1_ratio)
 
     # Display results
     fig = plt.figure(1)
@@ -110,11 +117,11 @@ def plot_enet_descent_path(X, y, l1_ratio):
 
 # COMMAND ----------
 
-# train_diabetes
-#   Uses the sklearn Diabetes dataset to predict diabetes progression using ElasticNet
-#       The predicted "progression" column is a quantitative measure of disease progression one year after baseline
-#       http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html
 def train_diabetes(data, in_alpha, in_l1_ratio):
+  """ Uses the sklearn Diabetes dataset to predict diabetes progression using ElasticNet
+    The predicted "progression" column is a quantitative measure of disease progression one year after baseline
+    http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html
+  """
   
   # Evaluate metrics
   def eval_metrics(actual, pred):
@@ -146,6 +153,7 @@ def train_diabetes(data, in_alpha, in_l1_ratio):
     l1_ratio = float(in_l1_ratio)
   
   # Start an MLflow run; the "with" keyword ensures we'll close the run even if this cell crashes
+  mlflow.set_experiment(f"/Shared/{username}_diabetes_demo")
   with mlflow.start_run():
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
     lr.fit(train_x, train_y)
@@ -167,9 +175,12 @@ def train_diabetes(data, in_alpha, in_l1_ratio):
     mlflow.log_metric("r2", r2)
     mlflow.log_metric("mae", mae)
     mlflow.sklearn.log_model(lr, "model")
+    mlflow.set_tag("group", "diabetes")
     
     # Call plot_enet_descent_path
     image = plot_enet_descent_path(X, y, l1_ratio)
+    model_info = mlflow.sklearn.log_model(lr, "diabetes_model")
+    return model_info
 
 # COMMAND ----------
 
@@ -184,7 +195,7 @@ def train_diabetes(data, in_alpha, in_l1_ratio):
 # COMMAND ----------
 
 # alpha and l1_ratio values of 0.01, 0.01
-train_diabetes(data, 0.01, 0.01)
+model_info = train_diabetes(data, 0.01, 0.01)
 
 # COMMAND ----------
 
@@ -193,7 +204,7 @@ display(image)
 # COMMAND ----------
 
 # alpha and l1_ratio values of 0.01, 0.75
-train_diabetes(data, 0.01, 0.75)
+model_info = train_diabetes(data, 0.01, 0.75)
 
 # COMMAND ----------
 
@@ -202,7 +213,7 @@ display(image)
 # COMMAND ----------
 
 # alpha and l1_ratio values of 0.01, .5
-train_diabetes(data, 0.01, .5)
+model_info = train_diabetes(data, 0.01, .5)
 
 # COMMAND ----------
 
@@ -211,7 +222,7 @@ display(image)
 # COMMAND ----------
 
 # alpha and l1_ratio values of 0.01, 1
-train_diabetes(data, 0.01, 1)
+model_info = train_diabetes(data, 0.01, 1)
 
 # COMMAND ----------
 
@@ -227,3 +238,86 @@ display(image)
 # MAGIC To view the details of a particular run, click the link in the **Start Time** column for that run. Or, in the Experiments sidebar, click the icon at the far right of the date and time of the run. 
 # MAGIC
 # MAGIC For more information, see "View notebook experiment" ([AWS](https://docs.databricks.com/applications/mlflow/tracking.html#view-notebook-experiment)|[Azure](https://docs.microsoft.com/azure/databricks/applications/mlflow/tracking#view-notebook-experiment)|[GCP](https://docs.gcp.databricks.com/applications/mlflow/tracking.html#view-notebook-experiment)).
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC # Inference
+
+# COMMAND ----------
+
+model_uri = f"runs:/{model_info.run_id}/diabetes_model"
+
+# COMMAND ----------
+
+# Load model as a PyFuncModel.
+loaded_model = mlflow.pyfunc.load_model(model_uri)
+
+# Predict on a Pandas DataFrame.
+y_pred = loaded_model.predict(pd.DataFrame(X))
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC ## Register model
+
+# COMMAND ----------
+
+registered_model = mlflow.register_model(model_uri, model_name)
+
+# Get the registered model version
+model_version = registered_model.version
+
+# Print the registered model information
+print("Registered Model Name:", registered_model)
+print("Registered Model Version:", model_version)
+
+# COMMAND ----------
+
+client = mlflow.MlflowClient()
+client.transition_model_version_stage(
+    name=model_name, version=model_version, stage="Staging"
+)
+
+# COMMAND ----------
+
+logged_model = f"models:/{model_name}/Staging"
+
+# Load model as a PyFuncModel.
+loaded_model = mlflow.pyfunc.load_model(logged_model)
+
+# Predict on a Pandas DataFrame.
+y_pred = loaded_model.predict(pd.DataFrame(X))
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC ## Query the served model
+
+# COMMAND ----------
+
+import os
+import requests
+import numpy as np
+import pandas as pd
+import json
+
+def create_tf_serving_json(data):
+  return {'inputs': {name: data[name].tolist() for name in data.keys()} if isinstance(data, dict) else data.tolist()}
+
+def score_model(dataset):
+  url = 'https://adb-3863256616093854.14.azuredatabricks.net/serving-endpoints/diabetes1/invocations'
+  token = dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
+  headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
+  ds_dict = {'dataframe_split': dataset.to_dict(orient='split')} \
+            if isinstance(dataset, pd.DataFrame) else create_tf_serving_json(dataset)
+  data_json = json.dumps(ds_dict, allow_nan=True)
+  response = requests.request(method='POST', headers=headers, url=url, data=data_json)
+  if response.status_code != 200:
+    raise Exception(f'Request failed with status {response.status_code}, {response.text}')
+  return response.json()
+
+score_model(X)
