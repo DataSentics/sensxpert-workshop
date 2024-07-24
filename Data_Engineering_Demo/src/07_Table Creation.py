@@ -46,6 +46,19 @@ reset = bool(dbutils.widgets.get("reset"))
 
 # COMMAND ----------
 
+default_catalog = "ls_dbx_workshop"
+default_schema = "day_one"
+
+dbutils.widgets.text("catalog", default_catalog, "Provide real name of the used catalog.")
+dbutils.widgets.text("schema", default_schema, "Provide real name of the used schema")
+catalog = dbutils.widgets.get("catalog")
+schema = dbutils.widgets.get("schema")
+
+spark.sql(f"USE CATALOG {catalog}")
+spark.sql(f"USE SCHEMA {schema}")
+
+# COMMAND ----------
+
 absolute_config_path = os.path.abspath(config_path)
 absolute_config_path
 
@@ -85,8 +98,6 @@ def add_column_tags(table_name, column_name, tags):
 # COMMAND ----------
 
 def create_table(schema_data, reset=False):
-    catalog = schema_data.get("catalog")
-    schema = schema_data.get("schema")
     table_name = schema_data.get("table_name")
     columns = schema_data.get("columns")
     comment = schema_data.get("comment", "")
