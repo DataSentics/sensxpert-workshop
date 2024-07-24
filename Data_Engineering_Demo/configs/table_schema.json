@@ -1,6 +1,4 @@
 {
-    "catalog": "ls_dbx_workshop",
-    "schema": "day_one",
     "table_name": "parts",
     "cluster_by": ["plant"],
     "comment": "This is table level comment",
