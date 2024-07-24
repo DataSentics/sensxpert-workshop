@@ -7,7 +7,7 @@ For most of the code to work run first cell in `1_intro_DBX.py` it sets
 up data in hivematestore.
 
 ## Day one (24. 7.):
-  Databricks engineering: TBA
+  - Data engineering demo in `Data_Engineering_Demo`
 
 ## Day two (25. 7.)
 ### Basic ML topics
