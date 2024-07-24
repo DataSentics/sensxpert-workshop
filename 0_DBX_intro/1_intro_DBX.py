@@ -303,7 +303,7 @@ dbutils.notebook.run("./test-notebook", 0)
 # MAGIC * ### Databricks File System (DBFS)
 # MAGIC A filesystem abstraction layer over a blob store. It contains directories, which can contain files (data files, libraries, and images), and other directories.
 # MAGIC
-# MAGIC ![DBFS](https://github.com/DataSentics/odap-workshops/blob/main/DBX/images/data_file_system.png?raw=true)
+# MAGIC ![DBFS](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/data_file_system.png?raw=true)
 # MAGIC
 # MAGIC * ### Database
 # MAGIC A collection of information that is organized so that it can be easily accessed, managed, and updated.
@@ -314,7 +314,7 @@ dbutils.notebook.run("./test-notebook", 0)
 # MAGIC * ### Metastore
 # MAGIC The component that stores all the structure information of the various tables and partitions in the data warehouse including column and column type information, the serializers and deserializers necessary to read and write data, and the corresponding files where the data is stored.
 # MAGIC
-# MAGIC ![Metastore](https://github.com/DataSentics/odap-workshops/blob/main/DBX/images/metastore.png?raw=true)
+# MAGIC ![Metastore](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/metastore.png?raw=true)
 
 # COMMAND ----------
 
@@ -349,19 +349,19 @@ dbutils.widgets.removeAll()
 # MAGIC
 # MAGIC An Azure Databricks cluster is a set of computation resources and configurations on which you run data engineering, data science, and data analytics workloads, such as production ETL pipelines, streaming analytics, ad-hoc analytics, and machine learning.
 # MAGIC
-# MAGIC ![cluster](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/cluster.png?raw=true)
+# MAGIC ![cluster](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/cluster.png?raw=true)
 # MAGIC
 # MAGIC ### Interactive clusters
 # MAGIC
 # MAGIC Interactive clusters are used to analyze data collaboratively with interactive notebooks and are much more expensive. --> Mostly used in development phase.
 # MAGIC
-# MAGIC ![cluster_interactive](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/all_purpous_clusters.png?raw=true)
+# MAGIC ![cluster_interactive](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/all_purpous_clusters.png?raw=true)
 # MAGIC
 # MAGIC ### Job clusters
 # MAGIC
 # MAGIC Job clusters are used to run fast and robust automated workflows using the UI or API and are cheaper. --> Mostly used in production.
 # MAGIC
-# MAGIC ![cluster_interactive](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/job_clusters.png?raw=true)
+# MAGIC ![cluster_interactive](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/job_clusters.png?raw=true)
 # MAGIC
 # MAGIC ### DBR (Databricks Runtime) version
 # MAGIC You can find there included packages. For example [10.4](https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/10.4)
@@ -401,12 +401,12 @@ dbutils.widgets.removeAll()
 # MAGIC ### Workflows with jobs:
 # MAGIC A non-interactive mechanism for running a notebook or library either immediately or on a scheduled basis.
 # MAGIC
-# MAGIC ![Schedules](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/workflow.png?raw=true)
+# MAGIC ![Schedules](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/workflow.png?raw=true)
 # MAGIC
 # MAGIC
 # MAGIC
 # MAGIC
-# MAGIC   ![Schedules](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/Schedule.png?raw=true)          ![Notification](https://github.com/DataSentics/odap-workshops/blob/olo-dbx-workshop/DBX/images/notifications.png?raw=true)
+# MAGIC   ![Schedules](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/Schedule.png?raw=true)          ![Notification](https://github.com/DataSentics/sensxpert-workshop/blob/master/0_DBX_intro/images/notifications.png?raw=true)
 
 # COMMAND ----------
 

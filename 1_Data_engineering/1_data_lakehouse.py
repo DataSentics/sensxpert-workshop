@@ -50,4 +50,4 @@
 
 # MAGIC %md 
 # MAGIC ## Databricks architecture(Control plane vs Data plane)
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/Images/databricks_architecture.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/databricks_architecture.png?raw=true)

@@ -28,13 +28,13 @@
 # MAGIC 2. Click Clone
 # MAGIC 3. Click Https
 # MAGIC 4. Copy the URL
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/clone-repo.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/clone-repo.png?raw=true)
 # MAGIC 5. Go back to Databricks
 # MAGIC 6. Click Repos
 # MAGIC 7. Click Add Repo
 # MAGIC 8. Enter the URL
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/add-repo-1.png?raw=true)
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/add-repo-2.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/add-repo-1.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/add-repo-2.png?raw=true)
 # MAGIC
 # MAGIC **Difference between HTTPS and SSH authentication**
 # MAGIC - HTTPS is based on user-name and password or PAT tokens. Used for interaction with Git from Databricks.
@@ -57,12 +57,12 @@
 # MAGIC #### To create a new branch for your development:
 # MAGIC 1. Click Repos
 # MAGIC 2. Click your current repository
-# MAGIC ![git-branch-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branch-1.png?raw=true)
+# MAGIC ![git-branch-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branch-1.png?raw=true)
 # MAGIC 3. Click create branch
-# MAGIC ![git-branch-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branch-2.png?raw=true)
+# MAGIC ![git-branch-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branch-2.png?raw=true)
 # MAGIC 4. Enter your branch name. In the branch name should be specified to whom the branch belongs and what does it contain. Eg. tbo-person-age-calculation. Based-on tells you on which branch your current branch will be based on. 
 # MAGIC 5. Click Create
-# MAGIC ![git-branch-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branch-3.png?raw=true)
+# MAGIC ![git-branch-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branch-3.png?raw=true)
 # MAGIC Now you created a new branch and automatically switched your context to it
 # MAGIC
 # MAGIC In git CLI to create a new branch: ```git checkout -b "branch-name"```
@@ -74,10 +74,10 @@
 # MAGIC #### To switch to a different branch
 # MAGIC 1. Click Repos
 # MAGIC 2. Click your current repository
-# MAGIC ![git-branch-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branch-1.png?raw=true)
+# MAGIC ![git-branch-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branch-1.png?raw=true)
 # MAGIC 3. Click your current branch name
 # MAGIC 4. Select desired branch from drop-down
-# MAGIC ![git-branch-switch](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/switch-branch.png?raw=true)
+# MAGIC ![git-branch-switch](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/switch-branch.png?raw=true)
 # MAGIC
 # MAGIC
 # MAGIC Now you switched your context to the desired branch. Look for any files that changed
@@ -123,11 +123,11 @@
 # MAGIC ### Git add, commit and push in Databricks
 # MAGIC 1. Click Repos
 # MAGIC 2. Click your repository
-# MAGIC ![git-branch-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branch-1.png?raw=true)
+# MAGIC ![git-branch-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branch-1.png?raw=true)
 # MAGIC 3. Check your changes. Keep the changes you are satisfied with and discard any changes you are not satisfied with.
 # MAGIC 4. Write your commit message describing the changes you made
 # MAGIC 5. Click commit and push
-# MAGIC ![git-changes](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-add-commit-push.png?raw=true)
+# MAGIC ![git-changes](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-add-commit-push.png?raw=true)
 
 # COMMAND ----------
 
@@ -139,10 +139,10 @@
 # MAGIC 1. Go to your repository on github.com
 # MAGIC 2. Click pull-requests
 # MAGIC 3. Click new pull-request
-# MAGIC ![create-pr1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-create-pr-1.png?raw=true)
+# MAGIC ![create-pr1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-create-pr-1.png?raw=true)
 # MAGIC 4. Select from which branch the new pull request will be created
 # MAGIC 5. Click create-pull-request
-# MAGIC ![create-pr1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-create-pr-2.png?raw=true)
+# MAGIC ![create-pr1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-create-pr-2.png?raw=true)
 # MAGIC 6. Once a pull-request has been created you need to ask someone to review your changes. To do so you can just send him the link to your pull-request. He can either request changes(add comments) to your pull-request or approve them.
 
 # COMMAND ----------
@@ -161,7 +161,7 @@
 # MAGIC 2. Click your repository
 # MAGIC 3. Click pull
 # MAGIC
-# MAGIC ![git-pull](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-pull.png?raw=true)
+# MAGIC ![git-pull](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-pull.png?raw=true)
 
 # COMMAND ----------
 
@@ -183,11 +183,11 @@
 # MAGIC
 # MAGIC An example can be seen if we try to create pull-request in repository ```git-practice``` from branch ```tbo-new-qoute``` to ```main```.
 # MAGIC
-# MAGIC ![git-conflict-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-conflict-1.png?raw=true)
+# MAGIC ![git-conflict-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-conflict-1.png?raw=true)
 # MAGIC
 # MAGIC To resolve the conflicts we locate resolve-conflicts button and click it
 # MAGIC
-# MAGIC ![git-conflict-2](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-conflict-2.png?raw=true)
+# MAGIC ![git-conflict-2](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-conflict-2.png?raw=true)
 # MAGIC
 # MAGIC Than we are met with the following code:
 # MAGIC
@@ -199,7 +199,7 @@
 # MAGIC >>>>>>> main
 # MAGIC ```
 # MAGIC
-# MAGIC ![git-conflict-3](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-conflict-3.png?raw=true)
+# MAGIC ![git-conflict-3](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-conflict-3.png?raw=true)
 # MAGIC
 # MAGIC To fix the conflict we need to delete one of the changes that has been made. We need to understand the code and choose the correct change. In this case we want to keep the change that has been made in ```tbo-new-qoute``` branch. To keep the change we just delete everything else until we are met with following:
 # MAGIC
@@ -207,11 +207,11 @@
 # MAGIC
 # MAGIC Than we just click Mark as resolved.
 # MAGIC
-# MAGIC ![git-conflict-4](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-conflict-4.png?raw=true)
+# MAGIC ![git-conflict-4](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-conflict-4.png?raw=true)
 # MAGIC
 # MAGIC And than Commit Merge
 # MAGIC
-# MAGIC ![git-conflict-5](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-conflict-5.png?raw=true)
+# MAGIC ![git-conflict-5](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-conflict-5.png?raw=true)
 
 # COMMAND ----------
 
@@ -224,11 +224,11 @@
 # MAGIC 3. Give Toso or Lukas some time to push into the  ```cs-pull-conflict-example```
 # MAGIC 4. Try to pull the changes. A window will pop-up showing you and error and requiring you to create pull-request to fix the conflicts
 # MAGIC 5. Click Resolve conflict using PR
-# MAGIC ![git-pull-conflict-1](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-pull-conflict-1.png?raw=true)
+# MAGIC ![git-pull-conflict-1](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-pull-conflict-1.png?raw=true)
 # MAGIC 6. Enter branch name into Branch and click commint to new branch
-# MAGIC ![git-pull-conflict-2](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-pull-conflict-2.png?raw=true)
+# MAGIC ![git-pull-conflict-2](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-pull-conflict-2.png?raw=true)
 # MAGIC 7. Create a pull request from the new branch into the old one
-# MAGIC ![git-pull-conflict-3](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-pull-conflict-3.png?raw=true)
+# MAGIC ![git-pull-conflict-3](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-pull-conflict-3.png?raw=true)
 # MAGIC 8. Follow the same steps as when fixing conflicts from above
 
 # COMMAND ----------

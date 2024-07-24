@@ -19,17 +19,17 @@
 # MAGIC ### Creating a DLT Pipeline
 # MAGIC 1. Go to workflows
 # MAGIC 2. Select Delta Live Tables 
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/images/dlt-1.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/dlt-1.png?raw=true)
 # MAGIC 3. Click Create a Pipeline
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/images/dlt-2.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/dlt-2.png?raw=true)
 # MAGIC 4. Select [Product edition](https://www.databricks.com/product/delta-live-tables-pricing-azure). This determines how many functionalities from DLT will be available to you together with pricing.
 # MAGIC 5. Enter Pipeline name
 # MAGIC 6. Enter Notebook libraries(Paths to the DLT notebooks)
 # MAGIC 7. Select pipeline mode. Triggered means batch, continous streaming.
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/images/dlt-3.png?raw=true)
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/images/dlt-4.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/dlt-3.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/dlt-4.png?raw=true)
 # MAGIC 8. Select development mode if developing(resources will be available for longer) or production(like a job cluster)
-# MAGIC ![github-clone-repo](https://github.com/DataSentics/odap-workshops/blob/main/DE/images/dlt-5.png?raw=true)
+# MAGIC ![github-clone-repo](https://github.com/DataSentics/sensxpert-workshop/blob/master/1_Data_engineering/Images/dlt-5.png?raw=true)
 
 # COMMAND ----------
 

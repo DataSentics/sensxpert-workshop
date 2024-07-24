@@ -39,7 +39,7 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ![what_is_git](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/git-branches-merge.png?raw=true)
+# MAGIC ![what_is_git](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/git-branches-merge.png?raw=true)
 
 # COMMAND ----------
 
@@ -55,8 +55,8 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ![github_logo](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/github_logo.png?raw=true)
-# MAGIC ![repo_image](https://github.com/DataSentics/odap-workshops/blob/main/Git/images/repo_image.png?raw=true)
+# MAGIC ![github_logo](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/github_logo.png?raw=true)
+# MAGIC ![repo_image](https://github.com/DataSentics/sensxpert-workshop/blob/master/3_Git/images/repo_image.png?raw=true)
 
 # COMMAND ----------
 
